@@ -1,0 +1,106 @@
+@charset "UTF-8";
+.main_div {
+	user-select:none;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	font-family: 'Courier New';
+}
+
+.form {
+	position: relative;
+	height: 50vh;
+	width: 20vw;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#regform {
+	width: 100%;
+	padding: 10px;
+	border-radius: 0 0 15px 15px;
+}
+
+td {
+	width: 30%;
+	transition: 2s;
+}
+
+td:last-child {
+	width: 70%;
+}
+
+td:first-child:hover {
+	position: relative;
+	left: 7px;
+	transition: left 3s;
+}
+
+input {
+	margin: 5px 0 5px 0;
+	width: 100%;
+	box-sizing: border-box;
+	background: #cee2ed;
+	border: none;
+	border-radius: 3px;
+	transition: .5s;
+	font-weight: bold;
+	font-family: 'Courier New';
+	padding: .27em;
+}
+
+input:focus {
+	outline-width: 0;
+	padding: .5em .5em .5em ;
+}
+
+input:hover {
+	padding:.5em .5em .5em ;
+}
+
+form>input {
+	position: relative;
+	width: 40%;
+	padding: 10px;
+	left: 50%;
+	top: 3px;
+	transform: translate(-50%);
+	border-radius: 15px;
+	background: white;
+	border: 1px solid rgba(152, 103, 197, 1);
+	border-radius: 15px;
+	/* font-weight: bolder; */
+	background: rgba(152, 103, 197, 1);
+}
+
+form>input:hover {
+	background: #843BC4;
+	color: white;
+}
+
+h4 {
+	background:rgba(152, 103, 197, 1);
+	border: 1px solid rgba(152, 103, 197, 1);
+	padding: 10px;
+	border-radius: 15px 15px 0 0;
+	margin: .4em 0 .4em 0;
+	/* font-weight: bolder; */
+	}
+
+h4:hover {
+	background: #843BC4;
+	color: white;
+}
+
+tr>td {
+	font-weight: bolder;
+}
+
+.title{
+	font-family: 'Courier New';
+	font-weight: bolder;
+	color: rgba(152, 103, 197, 1);
+}

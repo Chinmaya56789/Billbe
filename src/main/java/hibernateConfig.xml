@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:tx="http://www.springframework.org/schema/tx"
+
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+
+<tx:annotation-driven/>
+<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" name="ds">
+	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+	<property name="url" value="jdbc:mysql://localhost:3306/billbe_db" />
+	<property name="username" value="root" />
+	<property name="password" value="Chinmaya@123" />
+</bean>
+<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="localfactory">  
+        <property name="dataSource" ref="ds"></property>  
+          
+        <property name="annotatedClasses">
+		<list>
+			<value>com.billbe.Model.User</value>
+			<value>com.billbe.Model.Menu</value>
+			<value>com.billbe.Model.Dborder</value>
+			<value>com.billbe.Model.Customer</value>
+		</list>
+	</property>
+          
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+                <!--org.hibernate.dialect.MySQL57Dialect  -->  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">false</prop>  
+                  
+            </props>  
+        </property>  
+    </bean>  
+
+
+	
+<bean class="org.springframework.orm.hibernate5.HibernateTemplate" name="htemp">
+	<property name="sessionFactory" ref="localfactory" />
+</bean>
+<bean class="com.billbe.Dao.HibernateDao" name="factory">
+<property name="hibernatetemp" ref="htemp" />
+</bean>
+<bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" name="transactionManager">
+	<property name="sessionFactory" ref="localfactory" />
+</bean>
+
+
+</beans>
